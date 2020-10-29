@@ -12,7 +12,14 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.auth',
     'django.contrib.admin',
+    'django.contrib.messages',
     'sorter',
+]
+
+MIDDLEWARE = [
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
 ]
 
 TEMPLATES = [
@@ -22,6 +29,7 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': (
                 "django.contrib.auth.context_processors.auth",
+                'django.contrib.messages.context_processors.messages'
             ),
             'builtins': [
                 'sorter.templatetags.sorter_tags',

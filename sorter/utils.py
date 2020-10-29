@@ -1,4 +1,4 @@
-from itertools import tee, izip, chain
+from itertools import tee, chain
 
 
 def cycle_pairs(iterable):
@@ -9,5 +9,5 @@ def cycle_pairs(iterable):
     """
     first, last = iterable[0], iterable[-1]
     a, b = tee(iterable)
-    iter(b).next()
-    return chain(izip(a, b), [(last, first)])
+    next(iter(b))
+    return chain(zip(a, b), [(last, first)])
