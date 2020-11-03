@@ -1,3 +1,6 @@
+django>=2.2.16,<3.0
+URLObject
+django-appconf
 docutils
 model_mommy
 django-ttag>=2.3

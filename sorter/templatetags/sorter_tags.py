@@ -32,7 +32,7 @@ class SorterAsTag(ttag.helpers.AsTag):
         """
         Cleans the given name of the sort query
         """
-        if not isinstance(value, basestring):
+        if not isinstance(value, str):
             raise TemplateSyntaxError("Value '%s' is not a string" % value)
         # in case the value equals the default query name
         # or it already has the default query name prefixed
@@ -90,7 +90,7 @@ class TemplateAsTagMetaclass(ttag.helpers.as_tag.AsTagMetaclass):
     options_class = TemplateAsTagOptions
 
 
-class SortURL(SorterAsTag):
+class SortURL(SorterAsTag, metaclass=TemplateAsTagMetaclass):
     """
     Parses a tag that's supposed to be in this format:
 
@@ -99,8 +99,6 @@ class SortURL(SorterAsTag):
     {% sorturl with "objects" by "creation_date,-title" %}
 
     """
-    __metaclass__ = TemplateAsTagMetaclass
-
     with_ = ttag.Arg(required=False, named=True, default=settings.SORTER_DEFAULT_QUERY_NAME)
     rel = ttag.Arg(required=False, named=True)
     class_ = ttag.Arg(required=False, named=True)
