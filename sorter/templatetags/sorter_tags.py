@@ -4,7 +4,7 @@ from urlobject import URLObject
 from django import template
 from django.template import TemplateSyntaxError
 from django.template.loader import render_to_string
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 from django.utils.text import get_text_list
 
 import ttag
